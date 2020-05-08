@@ -15,6 +15,8 @@ app.get('/', (req, res) => {
     res.send('I am working');
 })
 
+require('./routes/customer')(app);
+
 app.listen(port, () => {
     console.log(`serve is runing on port ${port}`);
 })
