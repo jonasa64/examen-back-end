@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
     res.send('I am working');
 })
 
+require('./routes/dragDrop')(app);
 require('./routes/customer')(app);
 require('./routes/tshirt')(app);
 require('./routes/order')(app);
