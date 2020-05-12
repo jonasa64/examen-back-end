@@ -90,3 +90,24 @@ exports.findById = (req, res) => {
         });
 
 }
+
+
+exports.findAllSolutions = (req, res) => {
+    DragDrop.findAll({where: {type:'solution'}})
+        .then(drag => res.send(drag))
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving drag and drops"
+            });
+        });
+}
+
+exports.findAllConsequences = (req, res) => {
+    DragDrop.findAll({where: {type:'consequence'}})
+        .then(drag => res.send(drag))
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving drag and drops"
+            });
+        });
+}
