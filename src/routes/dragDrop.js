@@ -13,6 +13,10 @@ module.exports = app => {
 
     router.get('/:id', dragDropController.findById);
 
+    router.get('/consequence', dragDropController.findAllConsequences);
+
+    router.get('/solution', dragDropController.findAllSolutions)
+
 
 
     app.use('/dragDrop', router);
