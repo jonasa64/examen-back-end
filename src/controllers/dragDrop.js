@@ -48,3 +48,29 @@ exports.update = (req, res) => {
         });
     })
 }
+
+
+exports.delete = (req, res) => {
+
+    const id = req.params.id;
+
+    DragDrop.destroy({
+        where: { id: id }
+    }).then(num => {
+        if (num == 1) {
+            res.send({
+                message: "Drag and drop was deleted successfully!"
+            })
+        } else {
+            res.send({
+                message: `Cannot delete Drag and drop with id=${id}. Maybe shirt was not found!`
+            })
+        }
+    })
+        .catch(err => {
+            res.status(500).send({
+                message: "Could not delete Drag and drop with id=" + id
+            })
+        })
+
+}
