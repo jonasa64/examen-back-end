@@ -74,3 +74,19 @@ exports.delete = (req, res) => {
         })
 
 }
+
+
+exports.findById = (req, res) => {
+
+    const id = req.params.id;
+    DragDrop.findByPk(id)
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: 'Error retrieving Drag and drop with id= ' + id
+            });
+        });
+
+}
