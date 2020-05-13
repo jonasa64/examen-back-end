@@ -1,25 +1,34 @@
 const Quiz = require('../models/Quiz');
+const Answer = require('../models/Answer');
 
 exports.create = (req, res) => {
     const question = req.body.question;
+    const answer = req.body.answer;
+    const isCorrect = req.body.isCorrect
 
-    if(question === ''){
-        return res.send('Pleas enter a question');
+    if(question === '' || answer === ''){
+        return res.send('Pleas fill out all values');
     }
 
     Quiz.create({
         Question: question
-    }).then(quiz => res.send(quiz))
+    }).then(quiz => {
+        return Answer.create({
+            Answer: answer,
+            isCorrect: isCorrect,
+            Q_id: quiz.id
+        })
+    }).then(resulat => res.send(resulat))
         .catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while creating the  question"
+                message: err.message || "Some error occurred while creating the  quiz"
             });
         })
 }
 
 
 exports.findAll = (req, res) => {
-    Quiz.findAll()
+    Quiz.findAll({include: [Answer]})
         .then(quizs => res.send(quizs))
         .catch(err => {
             res.status(500).send({
