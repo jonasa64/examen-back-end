@@ -16,7 +16,7 @@ exports.create = (req, res) => {
         return Answer.create({
             Answer: answer,
             isCorrect: isCorrect,
-            Q_id: quiz.id
+            quizId: quiz.id
         })
     }).then(resulat => res.send(resulat))
         .catch(err => {
@@ -87,7 +87,7 @@ exports.update = (req, res) => {
 exports.findById = (req, res) => {
     const id = req.params.id;
 
-    Quiz.findByPk(id).then(quiz => res.send(quiz))
+    Quiz.findByPk(id, {include: [Answer]}).then(quiz => res.send(quiz))
         .catch(err => {
             res.status(500).send({
                 message: "Could not find Quiz with id=" + id
