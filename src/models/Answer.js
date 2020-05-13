@@ -12,7 +12,7 @@ const Answer = sequelize.define('answer', {
         type: Sequelize.BOOLEAN,
         allowNull: false
     },
-    Q_id : {
+    quizId : {
         type: Sequelize.INTEGER,
         allowNull: false
     }
