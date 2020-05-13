@@ -11,7 +11,7 @@ module.exports = app => {
 
     router.get('/', quizController.findAll);
 
-    router.get('/order/:id', quizController.findById);
+    router.get('/:id', quizController.findById);
 
 
     app.use('/quiz', router);
