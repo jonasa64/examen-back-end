@@ -62,7 +62,7 @@ exports.login = (req, res) => {
 
             if (bcrypt.compareSync(req.body.password, user[0].Password)) {
                 const token = jwt.sign(customer,
-                    "Henna and Jonas are a greet team",
+                    "Henna and Jonas are a greet team" || process.env.SECRET,
                     {
                         expiresIn: '1h'
                     });
