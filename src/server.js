@@ -21,7 +21,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const port =  process.env.PORT;
+const port =  process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
     res.send('I am working');
