@@ -31,7 +31,8 @@ require('./routes/dragDrop')(app);
 require('./routes/customer')(app);
 require('./routes/tshirt')(app);
 require('./routes/order')(app);
-require('./routes/quiz')(app)
+require('./routes/quiz')(app);
+require('./routes/leaderbord')(app);
 
 app.listen(port, () => {
     console.log(`serve is runing on port ${port}`);

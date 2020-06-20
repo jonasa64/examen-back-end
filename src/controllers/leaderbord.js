@@ -26,7 +26,7 @@ exports.addQuiz = (req, res) => {
     const username = req.body.username;
     const  score = req.body.score;
 
-    if(username === '' || time === ''){
+    if(username === '' || score === ''){
         return res.send('Pleas fill out all values');
     }
 
