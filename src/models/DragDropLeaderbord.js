@@ -3,11 +3,11 @@ const serialize = require('../../util/database');
 
 const DragDropleaderboard = serialize.define("dragDropleaderboard", {
 
-    username: {
+    Username: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    time : {
+    Time : {
         type: Sequelize.STRING,
         allowNull: false
     }

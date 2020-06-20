@@ -3,11 +3,11 @@ const serialize = require('../../util/database');
 
 const Quizleaderboard = serialize.define("quizleaderboard", {
 
-    username: {
+    Username: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    score : {
+    Score : {
         type: Sequelize.INTEGER,
         allowNull: false
     }
