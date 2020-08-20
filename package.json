@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/jonasa64/examen-back-end#readme",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
     "express": "^4.17.1",
