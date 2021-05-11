@@ -2,6 +2,7 @@ const order = require('../models/Order');
 const orderDetails = require('../models/OrderDeatils');
 const Customer = require('../models/Customer');
 const shirt = require('../models/Tshirt');
+//create new order
 exports.create = async (req, res) => {
     try {
 
@@ -13,8 +14,7 @@ exports.create = async (req, res) => {
         req.body.od.map((el, index) => {
             el[key] = newOrder.id;
         })
-        console.log(req.body.od);
-
+        //creates orderdetails
         const od = await
             orderDetails.bulkCreate(
                 req.body.od
@@ -36,11 +36,12 @@ exports.create = async (req, res) => {
 
 }
 
-
+//deletes a order
 exports.delete = (req, res) => {
     const id = req.params.id;
-
+     
     order.destroy({ where: { id: id } }).then(num => {
+        //check if order was found
         if (num == 1) {
             res.send({
                 message: "order was deleted successfully!"
@@ -58,7 +59,7 @@ exports.delete = (req, res) => {
         })
 }
 
-
+//update a order
 exports.update = (req, res) => {
     const id = req.params.id;
     order.update({
@@ -82,7 +83,7 @@ exports.update = (req, res) => {
         });
     })
 }
-
+// find all orders
 exports.findAll = (req, res) => {
     order.findAll({ include: [orderDetails, Customer] }).then(orders => {
         res.send(orders);
@@ -93,6 +94,8 @@ exports.findAll = (req, res) => {
     })
 }
 
+
+// find one order
 exports.findOne = (req, res) => {
 
     const id = req.params.id;
@@ -105,7 +108,7 @@ exports.findOne = (req, res) => {
     })
 
 }
-
+// find order by user 
 exports.findByUserId = (req, res) => {
     const customerId = req.params.customerId;
     order.findAll({ where: { customerCId: customerId }, include: [orderDetails, Customer] }).then(orders => {
