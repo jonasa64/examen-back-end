@@ -1,5 +1,5 @@
 const Tshirt = require('../models/Tshirt');
-
+// create new shirt
 exports.create = (req, res) => {
 
     const newShirt = {
@@ -22,7 +22,7 @@ exports.create = (req, res) => {
 
 }
 
-
+//find all the shirts
 exports.findAll = (req, res) => {
 
     Tshirt.findAll()
@@ -35,7 +35,7 @@ exports.findAll = (req, res) => {
             });
         });
 }
-
+//find a single shirts
 exports.findById = (req, res) => {
 
     const id = req.params.id;
@@ -51,7 +51,7 @@ exports.findById = (req, res) => {
 
 }
 
-
+//upadtes a shirts
 exports.update = (req, res) => {
     const id = req.params.id;
 
@@ -81,7 +81,7 @@ exports.update = (req, res) => {
     });
 }
 
-
+//deletes a shirt
 exports.delete = (req, res) => {
 
     const id = req.params.id;
