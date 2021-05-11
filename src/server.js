@@ -1,3 +1,4 @@
+//imports
 const express = require('express');
 const cors = require('cors');
 const sequelize = require('../util/database');
@@ -7,6 +8,7 @@ const Customer = require('./models/Customer');
 const Quiz = require('./models/Quiz');
 const Answer = require('./models/Answer');
 
+// relationships
 Customer.hasMany(Order);
 Order.belongsTo(Customer);
 Order.hasMany(orderDetails);
@@ -23,6 +25,7 @@ app.use(cors());
 
 const port =  process.env.PORT || 3000;
 
+//test route
 app.get('/', (req, res) => {
     res.send('I am working');
 })
