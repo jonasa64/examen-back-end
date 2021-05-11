@@ -1,3 +1,4 @@
+// leaderbord routes for quiz
 module.exports = app => {
     const  leaderbord = require('../controllers/leaderbord');
     const  express = require('express');
