@@ -43,6 +43,7 @@ exports.create = (req, res) => {
     });
 }
 
+//  give the user a token
 exports.login = (req, res) => {
     const username = req.body.username;
     Customer.findAll({ where: { Username: username } })
@@ -59,8 +60,9 @@ exports.login = (req, res) => {
                 mail: user[0].Email,
                 address: user[0].Address
             }
-
+               //password check
             if (bcrypt.compareSync(req.body.password, user[0].Password)) {
+                //create auth token
                 const token = jwt.sign(customer,
                     process.env.SECRET,
                     {
