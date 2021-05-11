@@ -1,3 +1,4 @@
+// customer roues 
 module.exports = app => {
     var router = require("express").Router();
    // var cors = require('cors');
